@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Lecciones</title>
+</head>
+<body>
+    <h1>Lista de Lecciones</h1>
+    <ul>
+        {% for leccion in lecciones %}
+            <li>
+                <a href="{% url 'detalle_leccion' leccion.id %}">{{ leccion.titulo }}</a>
+                <a href="{% url 'editar_leccion' leccion.id %}">Editar</a>
+                <a href="{% url 'eliminar_leccion' leccion.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'crear_leccion' %}">Crear Nueva Lección</a>
+</body>
+</html>
